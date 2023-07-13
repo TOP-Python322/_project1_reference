@@ -12,6 +12,10 @@ PLAYERS_DB_PATH = ROOT_DIR / 'data/players.ini'
 SAVES_DB_PATH = ROOT_DIR / 'data/saves'
 
 
+# база игроков - имена и статистика игроков 
+players_db: dict[str, dict[str, int]] = {}
+
+
 COMMANDS = {
     'новая партия': ('new', 'игра'),
     'загрузка': ('load', 'загрузка'),
@@ -20,4 +24,5 @@ COMMANDS = {
     'размер поля': ('dim', 'размер'),
     'выход': ('quit', 'выход'),
 }
+
 

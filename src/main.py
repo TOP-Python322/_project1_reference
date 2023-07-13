@@ -11,7 +11,7 @@ import utils
 
 # 1. Чтение файлов данных
 # 2. ЕСЛИ первый запуск:
-if utils.read_players():
+if not utils.read_players():
     # вывод раздела помощи 
     help.show_help()
 
