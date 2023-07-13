@@ -4,12 +4,15 @@
 
 # стандартная библиотека
 from pathlib import Path
+from re import compile
 from sys import path
 
 
 ROOT_DIR = Path(path[0]).parent
 PLAYERS_DB_PATH = ROOT_DIR / 'data/players.ini'
 SAVES_DB_PATH = ROOT_DIR / 'data/saves'
+
+name_pattern = compile(r'[a-zA-Zа-яА-Я][а-яА-Я\w]+')
 
 
 # база игроков - имена и статистика игроков 
@@ -25,5 +28,9 @@ COMMANDS = {
     'размер поля': ('dim', 'размер'),
     'выход': ('quit', 'выход'),
 }
-
+MESSAGES = {
+    'ввод имени': ' _ введите имя: ',
+    'некорректное имя': ' ! имя игрока должно начинаться с буквы и быть не короче двух символов',
+    # '': '',
+}
 
