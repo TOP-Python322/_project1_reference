@@ -16,7 +16,7 @@ if not utils.read_players():
     help.show_help()
 
 # 3. Запрос имени игрока
-players.get_player()
+players.get_name()
 
 # суперцикл (главное меню)
 while True:
