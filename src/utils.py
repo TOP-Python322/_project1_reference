@@ -20,3 +20,11 @@ def read_players() -> bool:
         }
     return bool(data.players_db)
 
+
+def write_players() -> None:
+    """"""
+    cp = ConfigParser()
+    cp.read_dict(data.players_db)
+    with open(data.PLAYERS_DB_PATH, 'w', encoding='utf-8') as fileout:
+        cp.write(fileout)
+
