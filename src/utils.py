@@ -51,3 +51,13 @@ def concatenate_lines(
     )
 
 
+# >>> board1 = field_template().format(*['X']*9)
+# >>> board2 = field_template().format(*['O']*9)
+# >>>
+# >>> print(concatenate_lines(board1, board2))
+#  X | X | X          O | O | O
+# ———————————        ———————————
+#  X | X | X          O | O | O
+# ———————————        ———————————
+#  X | X | X          O | O | O
+
