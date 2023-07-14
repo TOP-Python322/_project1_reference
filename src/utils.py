@@ -36,18 +36,18 @@ def field_template(width: int = 1) -> str:
 
 
 def concatenate_lines(
-        matrix1: str,
-        matrix2: str,
-        *matrices: str,
+        multiline1: str,
+        multiline2: str,
+        *multilines: str,
         padding: int = 8
 ) -> str:
     """Принимает на вход мнострочные объекты str и возвращает один объект str, строчки которого составлены из соответствующих строчек каждого переданного объекта, раздёлнных отступом."""
-    matrices = matrix1, matrix2, *matrices
-    matrices = [m.split('\n') for m in matrices]
+    multilines = multiline1, multiline2, *multilines
+    multilines = [m.split('\n') for m in multilines]
     padding = ' '*padding
     return '\n'.join(
         padding.join(row)
-        for row in zip(*matrices)
+        for row in zip(*multilines)
     )
 
 
