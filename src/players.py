@@ -20,5 +20,8 @@ def get_name() -> None:
             'fails': 0,
             'ties': 0
         }
+    if data.authorized_player is None:
+        data.authorized_player = name
+    data.active_players += [name]
     utils.write_players()
 
