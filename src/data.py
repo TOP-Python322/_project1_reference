@@ -38,6 +38,11 @@ MESSAGES = {
 
 
 authorized_player: str = None
-
 active_players: list[str] = []
+
+dim: int = 3
+dim_range: range = range(dim)
+all_cells: int = dim**2
+
+field_template: str = None
 

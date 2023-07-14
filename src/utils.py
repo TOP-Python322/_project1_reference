@@ -4,7 +4,6 @@
 
 # стандартная библиотека
 from configparser import ConfigParser
-from pprint import pprint
 # проект
 import data
 
@@ -27,4 +26,11 @@ def write_players() -> None:
     cp.read_dict(data.players_db)
     with open(data.PLAYERS_DB_PATH, 'w', encoding='utf-8') as fileout:
         cp.write(fileout)
+
+
+def field_template(width: int = 1) -> str:
+    """"""
+    row = '|'.join([' {} ']*data.dim)
+    h_line = '—'*(data.dim*(width+2) + data.dim-1)
+    return f'\n{h_line}\n'.join([row]*data.dim)
 
