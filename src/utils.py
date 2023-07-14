@@ -61,3 +61,7 @@ def concatenate_lines(
 # ———————————        ———————————
 #  X | X | X          O | O | O
 
+
+def clear():
+    ...
+

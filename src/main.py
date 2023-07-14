@@ -33,5 +33,7 @@ while True:
     
     elif command in data.COMMANDS['выход']:
         break
+    
+    utils.clear()
 
 # 20. Действия перед завершением работы приложения
