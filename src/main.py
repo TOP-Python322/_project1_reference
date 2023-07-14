@@ -9,6 +9,9 @@ import help
 import players
 import utils
 
+
+utils.header_text(data.APP_TITLE, level=1)
+
 # 1. Чтение файлов данных
 # 2. ЕСЛИ первый запуск:
 if not utils.read_players():

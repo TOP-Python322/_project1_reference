@@ -10,6 +10,8 @@ from sys import path
 import utils
 
 
+APP_TITLE = 'КРЕСТИКИ-НОЛИКИ'
+
 ROOT_DIR = Path(path[0]).parent
 PLAYERS_DB_PATH = ROOT_DIR / 'data/players.ini'
 SAVES_DB_PATH = ROOT_DIR / 'data/saves'
