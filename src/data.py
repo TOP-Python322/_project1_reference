@@ -42,9 +42,14 @@ MESSAGES = {
 authorized_player: str = None
 active_players: list[str] = []
 
+TOKENS = ('X', 'O')
+
 dim: int = 3
 dim_range: range = range(dim)
 all_cells: int = dim**2
 
 field_template: str = None
+
+board: dict[int, str] = dict.fromkeys(range(all_cells), ' ')
+turns: dict[int, str] = {}
 
