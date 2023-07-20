@@ -3,6 +3,7 @@
 """
 
 # стандартная библиотека
+from collections.abc import Callable
 from pathlib import Path
 from re import compile
 from sys import path
@@ -34,6 +35,7 @@ COMMANDS = {
 
 authorized_player: str = None
 active_players: list[str] = []
+bot_level: Callable = None
 
 TOKENS = ('X', 'O')
 

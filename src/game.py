@@ -2,6 +2,24 @@
 Основной модуль: настройка игры и игровой процесс.
 """
 
+# проект
+import bot
+import data
+import utils
+
+
+def mode():
+    ...
+    # if bot_name == '#1'
+    #     data.bot_level = bot.easy
+
+    # if bot_name == '#2'
+    #     data.bot_level = bot.hard
+
+
+def load():
+    ...
+
 
 def game() -> list[str] | None:
     """Контроллер игрового процесса.
@@ -22,10 +40,6 @@ def game() -> list[str] | None:
 
 
 def get_human_turn():
-    ...
-
-
-def get_bot_turn():
     ...
 
 
