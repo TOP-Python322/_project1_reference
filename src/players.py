@@ -25,3 +25,23 @@ def get_name() -> None:
     data.active_players += [name]
     utils.write_players()
 
+
+def update(names: list[str]) -> None:
+    """"""
+    if names:
+        winner, looser = names
+        # AFNP (Ask Forgivness, Not Permission — лучше просить прощения, чем разрешения) — имеет смысл, если исключение KeyError возникает редко, то есть в winner и looser редко оказывается имя бота
+        try:
+            data.players_db[winner]['wins'] += 1
+        except KeyError:
+            pass
+        try:
+            data.players_db[looser]['fails'] += 1
+        except KeyError:
+            pass
+    else:
+        for name in data.active_players:
+            # логическое выражение выполняется всегда — чтобы оправдать его выполнение, необходимо понять, насколько часто в name действительно оказывается имя бота
+            if not name.startswith('#'):
+                data.players_db[name]['ties'] += 1
+
