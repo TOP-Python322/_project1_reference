@@ -64,14 +64,16 @@ def concatenate_lines(
 #  X | X | X          O | O | O
 
 
-def clear():
-    ...
+def clear() -> None:
+    """"""
+    data.active_players = [data.authorized_player]
+    data.turns = {}
 
 
 def header_text(
         text: str, 
         *, 
-        level: Literal[1, 2, 3, ...], 
+        level: Literal[1, 2, ...], 
         v_fill: str = '#', 
         h_fill: str = '='
 ) -> str:
