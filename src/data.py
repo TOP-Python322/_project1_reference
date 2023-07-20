@@ -15,6 +15,7 @@ PLAYERS_DB_PATH = ROOT_DIR / 'data/players.ini'
 SAVES_DB_PATH = ROOT_DIR / 'data/saves'
 
 name_pattern = compile(r'[a-zA-Zа-яА-Я][а-яА-Я\w]+')
+dim_pattern = compile(r'[3-9]|1\d|20')
 
 # база игроков - имена и статистика игроков 
 players_db: dict[str, dict[str, int]] = {}

@@ -64,6 +64,23 @@ def concatenate_lines(
 #  X | X | X          O | O | O
 
 
+def change_dim(new_dim: int = None) -> None:
+    """"""
+    if new_dim is None:
+        while True:
+            new_dim = input(data.MESSAGES['ввод размера'])
+            if data.dim_pattern.fullmatch(new_dim):
+                new_dim = int(new_dim)
+                break
+            else:
+                print(data.MESSAGES['некорректный размер'])
+    data.dim = new_dim
+    data.dim_range = range(new_dim)
+    data.all_cells = new_dim**2
+    data.board = dict.fromkeys(range(data.all_cells), ' ')
+    data.MESSAGES['ход не в диапазоне'] = f' ! номер ячейки должен находиться в диапазоне от 0 до {data.all_cells-1} включительно'
+
+
 def clear() -> None:
     """"""
     data.active_players = [data.authorized_player]
