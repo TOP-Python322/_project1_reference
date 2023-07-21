@@ -2,6 +2,8 @@
 Основной модуль: настройка игры и игровой процесс.
 """
 
+# стандартная библиотека
+from shutil import get_terminal_size
 # проект
 import bot
 import data
@@ -26,7 +28,6 @@ def game() -> list[str] | None:
     
     Возвращает список имён в формате ['имя_выигравшего', 'имя_проигравшего'], пустой список для ничьей или None, если партия не завершена.
     """
-    data.field = utils.field_template()
     # 10. Цикл до максимального количества ходов
     for t in range(len(data.turns), data.all_cells):
         # индекс-указатель на игрока и токен
@@ -64,8 +65,30 @@ def save():
     ...
 
 
-def print_board():
-    ...
+def print_board(token_index: int = 0) -> None:
+    """"""
+    board = tuple((data.board | data.turns).values())
+    board = data.field.format(*board)
+    
+    if data.DEBUG:
+        for vector in data.debug_data.values():
+            max_width = max(len(str(n)) for n in vector)
+            templ = utils.field_template(max_width)
+            vector = templ.format(*(f'{n:^{max_width}}' for n in vector))
+            if token_index:
+                board = utils.concatenate_lines(vector, board, padding=5)
+            else:
+                board = utils.concatenate_lines(board, vector, padding=5)
+    
+    if token_index:
+        term_width = get_terminal_size()[0] - 1
+        board_width = len(board.split('\n', 1)[0])
+        margin = ' '*(term_width - board_width)
+        margin = '\n'.join([margin]*(2*data.dim-1))
+        board = utils.concatenate_lines(margin, board, padding=0)
+    
+    print(board)
+
 
 
 def check_win():
