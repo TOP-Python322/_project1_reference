@@ -18,6 +18,9 @@ if not utils.read_players():
     # вывод раздела помощи 
     help.show_help()
 
+utils.read_saves()
+utils.change_dim(3)
+
 # 3. Запрос имени игрока
 players.get_name()
 

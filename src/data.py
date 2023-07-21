@@ -9,6 +9,10 @@ from re import compile
 from sys import path
 
 
+DEBUG: bool = True
+debug_data: dict = {}
+
+
 APP_TITLE = 'КРЕСТИКИ-НОЛИКИ'
 
 ROOT_DIR = Path(path[0]).parent
@@ -20,6 +24,8 @@ dim_pattern = compile(r'[3-9]|1\d|20')
 
 # база игроков - имена и статистика игроков 
 players_db: dict[str, dict[str, int]] = {}
+# база сохранений - сохранённые партии
+saves_db: dict[frozenset, dict] = {}
 
 
 COMMANDS = {
@@ -39,14 +45,19 @@ bot_level: Callable = None
 
 TOKENS = ('X', 'O')
 
+WEIGHT_OWN: float = 1.5
+WEIGHT_FOE: float = 1.0
+
+START_MATRICES: tuple = None
+
 dim: int = 3
-dim_range: range = range(dim)
-all_cells: int = dim**2
+dim_range: range = None
+all_cells: int = None
 
 field: str = None
 
-board: dict[int, str] = dict.fromkeys(range(all_cells), ' ')
-turns: dict[int, str] = {}
+board: dict[int, str] = None
+turns: dict[int, str] = None
 
 
 MESSAGES = {

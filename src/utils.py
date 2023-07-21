@@ -30,6 +30,14 @@ def write_players() -> None:
         cp.write(fileout)
 
 
+def read_saves():
+    ...
+
+
+def write_saves():
+    ...
+
+
 def field_template(width: int = 1) -> str:
     """"""
     row = '|'.join([' {} ']*data.dim)
@@ -77,8 +85,13 @@ def change_dim(new_dim: int = None) -> None:
     data.dim = new_dim
     data.dim_range = range(new_dim)
     data.all_cells = new_dim**2
+    data.field = utils.field_template()
     data.board = dict.fromkeys(range(data.all_cells), ' ')
     data.MESSAGES['ход не в диапазоне'] = f' ! номер ячейки должен находиться в диапазоне от 0 до {data.all_cells-1} включительно'
+    data.START_MATRICES = (
+        bot.calc_sm_cross(),
+        bot.calc_sm_zero()
+    )
 
 
 def clear() -> None:
